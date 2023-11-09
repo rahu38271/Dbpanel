@@ -1,0 +1,132 @@
+
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button auto-hide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="primary">
+        <ion-button>
+          <ion-icon name="person-sharp"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Manage Setting</ion-title>
+      
+    </ion-toolbar>
+  </ion-header>
+  <div class="main-bg">
+    <div class="page-header"></div>
+    <div class="table-responsive">
+      <form>
+        <ion-grid class="topForm">
+          <ion-row class="header">
+            <ion-col size="6">
+              <ion-label>General Setting</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="floating">Company Name</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="floating">Company Email</ion-label>
+                <ion-input type="email"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="floating">Company Phone</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="floating">Company Address</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="floating">City</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item class="file">
+                <ion-label position="stacked">Company Logo</ion-label>
+                <ion-input type="file"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row class="header">
+            <ion-col size="6">
+              <ion-label>Display Setting</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6">
+              <ion-item >
+                <ion-label position="floating">Records per Page</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item >
+                <ion-label position="floating">Currency Symbol</ion-label>
+                <ion-input placeholder="₹"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row class="header">
+            <ion-col size="6">
+              <ion-label>Other Setting</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="stacked">User registration. admin notification mail</ion-label>
+                <ion-checkbox></ion-checkbox>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="floating">Select Default Register Role</ion-label>
+                <ion-select interface="popover" placeholder="Select Default Register Role">
+                  <ion-select-option value="User">User</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="floating">Max. invalid login attempts</ion-label>
+                <ion-input placeholder="3"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="floating">Lockout delay (minutes)</ion-label>
+                <ion-input placeholder="2"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="floating">Allowed IP address (comma separated)</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+            </ion-col>
+            
+            <ion-col size="12" class="ion-text-center">
+              <ion-button color="danger">Cancel</ion-button>
+              <ion-button>Update Setting</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </div>
+  </div>
+</ion-content>

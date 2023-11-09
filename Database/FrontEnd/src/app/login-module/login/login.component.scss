@@ -1,0 +1,31 @@
+.card {
+    width: 400px; 
+    border: solid 1px #e0e0e0;
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    padding: 30px;
+    text-align: center;
+    background: #FFF;
+}
+
+ion-button { margin-top: 20px; }
+
+.card h2 { font-size: 20px !important; }
+
+.card img { width: 250px; }
+
+ion-item { border: solid 1px #e0e0e0; }
+
+    .mt-5 { margin-top: 20px; }
+    .mt-10 { margin-top: 40px; }
+
+.login-bg {
+    width: 100%;
+    //background: #F00;
+    height: 100%;
+    position: relative;
+    background-image: url('/assets/img/login-bg.jpg');
+    background-position: center;
+    background-size: cover;
+}

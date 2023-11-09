@@ -1,0 +1,27 @@
+<ion-content>
+  <div class="login-bg">
+    <form>
+      <div class="card">
+        <img src="assets/img/logo.png" alt="img">
+        <h2>Sign in to continue</h2>
+        
+        <ion-item lines="none" class="mt-10">
+          <!-- <ion-label position="floating">UserId</ion-label> -->
+          <ion-input placeholder="Username" name="Contact" [(ngModel)]="loginModal.Contact"  type="numeric" maxlength="10"></ion-input>
+        </ion-item>
+    
+        <ion-item lines="none" class="mt-5">
+          <!-- <ion-label position="floating">Password</ion-label> -->
+          <ion-input placeholder="Password" name="Password" [(ngModel)]="loginModal.Password" type="password"></ion-input>
+        </ion-item>
+        
+        <ion-button size="block" color="secondary" (click)="login()">
+          Sign In
+        </ion-button>
+        <p class="mt-5">
+          New to Obicas Infotech ? <a href="javascript:void(0)">Create an Account</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</ion-content>

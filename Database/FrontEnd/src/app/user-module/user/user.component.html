@@ -1,0 +1,98 @@
+
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button auto-hide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="primary">
+        <ion-button>
+          <ion-icon name="person-sharp"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Users</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="main-bg">
+    <div class="page-header"></div>
+    <div class="table-responsive">
+      <div class="title">
+        <p>Users</p>
+        <ion-button routerLink="/user/add-user">User</ion-button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Used Credits</th>
+            <th>Credits</th>
+            <th>Status</th>
+            <th>Verified At</th>
+            <th>Photo</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sagar Manaji Salunkhe</td>
+            <td>sagarsalunkhe200@gmail.com</td>
+            <td>8900</td>
+            <td>1100</td>
+            <td>
+              <ion-badge slot="start" color="success">Active</ion-badge>
+            </td>
+            <td>07-10-2022 4:30 PM</td>
+            <td>
+              <ion-icon name="person-sharp" class="user"></ion-icon>
+            </td>
+            <td>
+              <ion-icon name="sync-sharp" class="refresh"></ion-icon>
+              <ion-icon name="eye-sharp" class="view" routerLink="/user/view-user"></ion-icon>
+              <ion-icon name="create-sharp" class="edit" routerLink="/user/edit-user"></ion-icon>
+              <ion-icon name="trash-sharp" class="delete" (click)="presentAlert()"></ion-icon>
+            </td>
+          </tr>
+          <tr>
+            <td>Sagar Manaji Salunkhe</td>
+            <td>sagarsalunkhe200@gmail.com</td>
+            <td>8900</td>
+            <td>1100</td>
+            <td>
+              <ion-badge slot="start" color="success">Active</ion-badge>
+            </td>
+            <td>07-10-2022 4:30 PM</td>
+            <td>
+              <ion-icon name="person-sharp" class="user"></ion-icon>
+            </td>
+            <td>
+              <ion-icon name="sync-sharp" class="refresh"></ion-icon>
+              <ion-icon name="eye-sharp" class="view"></ion-icon>
+              <ion-icon name="create-sharp" class="edit" ></ion-icon>
+              <ion-icon name="trash-sharp" class="delete"></ion-icon>
+            </td>
+          </tr>
+          <tr>
+            <td>Sagar Manaji Salunkhe</td>
+            <td>sagarsalunkhe200@gmail.com</td>
+            <td>8900</td>
+            <td>1100</td>
+            <td>
+              <ion-badge slot="start" color="success">Active</ion-badge>
+            </td>
+            <td>07-10-2022 4:30 PM</td>
+            <td>
+              <ion-icon name="person-sharp" class="user"></ion-icon>
+            </td>
+            <td>
+              <ion-icon name="sync-sharp" class="refresh"></ion-icon>
+              <ion-icon name="eye-sharp" class="view"></ion-icon>
+              <ion-icon name="create-sharp" class="edit"></ion-icon>
+              <ion-icon name="trash-sharp" class="delete"></ion-icon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ion-content>

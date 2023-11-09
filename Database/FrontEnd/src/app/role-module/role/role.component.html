@@ -1,0 +1,87 @@
+
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button auto-hide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="primary">
+        <ion-button>
+          <ion-icon name="person-sharp"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Roles</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="main-bg">
+    <div class="page-header"></div>
+    <div class="table-responsive">
+      <div class="title">
+        <p>All Roles</p>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Permission</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Superadmin</td>
+            <td>
+              <ion-badge slot="start">Update Setting </ion-badge>
+              <ion-badge slot="start">View User </ion-badge>
+              <ion-badge slot="start">Create User </ion-badge>
+              <ion-badge slot="start">Update User </ion-badge>
+              <ion-badge slot="start">Delete User </ion-badge>
+              <ion-badge slot="start">View Permission </ion-badge>
+              <ion-badge slot="start">View Role </ion-badge>
+              <ion-badge slot="start">Create Role </ion-badge>
+              <ion-badge slot="start">Create Permission </ion-badge>
+              <ion-badge slot="start">Update Role </ion-badge>
+              <ion-badge slot="start">Update Permission </ion-badge>
+              <ion-badge slot="start">Delete Role </ion-badge>
+              <ion-badge slot="start">Delete Permission </ion-badge>
+              <ion-badge slot="start">View Activity Log </ion-badge>
+              <ion-badge slot="start">View Category </ion-badge>
+              <ion-badge slot="start">Create Category </ion-badge>
+              <ion-badge slot="start">Update Category </ion-badge>
+              <ion-badge slot="start">Delete Category </ion-badge>
+              <ion-badge slot="start">View Post </ion-badge>
+              <ion-badge slot="start">Create Post </ion-badge>
+              <ion-badge slot="start">Update Post </ion-badge>
+              <ion-badge slot="start">Delete Post </ion-badge>
+              <ion-badge slot="start">Upload Bulk</ion-badge>
+            </td>
+            <td>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>User</td>
+            <td>
+              <ion-badge slot="start">Upload Bulk</ion-badge>
+            </td>
+            <td>
+              <ion-icon name="create-sharp" class="edit" ></ion-icon>
+              <ion-icon name="trash-sharp" class="delete" (click)="presentAlert()"></ion-icon>
+            </td>
+          </tr>
+          <tr>
+            <td>TL</td>
+            <td>
+              <ion-badge slot="start">Update Post</ion-badge>
+              <ion-badge slot="start">Upload Bulk</ion-badge>
+            </td>
+            <td>
+              <ion-icon name="create-sharp" class="edit" ></ion-icon>
+              <ion-icon name="trash-sharp" class="delete" (click)="presentAlert()"></ion-icon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ion-content>

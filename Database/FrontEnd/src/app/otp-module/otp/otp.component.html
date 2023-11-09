@@ -1,0 +1,16 @@
+<ion-content>
+  <div class="card">
+    <img src="assets/img/logo.png" alt="img">
+    <h2>2-Step Verification</h2>
+    <p>
+      Please enter the 6 digit verification code sent to your mobile 
+    </p>
+    <p>
+      <strong>6 digit code</strong>
+    </p>
+    <ng-otp-input [config]="{length:6,allowNumbersOnly:true}"></ng-otp-input>
+    <ion-button size="block" color="secondary">
+      Verify Code
+    </ion-button>
+  </div>
+</ion-content>

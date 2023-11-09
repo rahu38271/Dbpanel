@@ -1,0 +1,64 @@
+
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button auto-hide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="primary">
+        <ion-button>
+          <ion-icon name="person-sharp"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Pincode</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="main-bg">
+    <div class="page-header"></div>
+    <div class="table-responsive">
+      <form (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+        <ion-grid class="topForm">
+          <ion-row>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="floating">Pincodes</ion-label>
+                <ion-input name="pincode" [(ngModel)]="pinModal.PinCode" placeholder="111111,222222,333333"></ion-input>
+              </ion-item>
+            </ion-col>
+            
+            <ion-col size="12" class="ion-text-center">
+              <ion-button color="danger">Cancel</ion-button>
+              <ion-button  (click)="addPinCode()">Search</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+      
+    </div>
+    <table class="table" *ngIf="!isShow">
+      <thead>
+        <tr>
+          <th>PinCode</th>
+          <th>Count</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of pinCodesFile">
+          <td>{{item.pinCode}}</td>
+          <td>{{item.totalCount}}</td>
+          <td>
+            <!-- <ion-button size="small" color="success" pinCode="{{item.pinCode}}" (click)="pincodeData($event)">
+              Download
+            </ion-button> -->
+            <ion-button size="small" color="success" (click)="pincodeData(item.pinCode)">
+              Download
+            </ion-button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+
+  </div>
+</ion-content>

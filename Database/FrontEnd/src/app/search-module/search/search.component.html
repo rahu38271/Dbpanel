@@ -1,0 +1,512 @@
+
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button auto-hide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="primary">
+        <ion-button id="click-trigger">
+          <ion-icon name="person-sharp"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Search</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="main-bg">
+    <div class="page-header"></div>
+    <div class="table-responsive">
+      <form>
+        <ion-grid class="topForm">
+          <ion-row>
+            <ion-col size="3">
+              <ion-label>Select State</ion-label>
+              <ion-item>
+                <ion-select interface="popover" placeholder="Select State">
+                  <ion-select-option value="Maharashtra">Maharashtra</ion-select-option>
+                  <ion-select-option value="Gujrat">Gujrat</ion-select-option>
+                  <ion-select-option value="Karnataka">Karnataka</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="3">
+              <ion-label>Select District</ion-label>
+              <ion-item>
+                <ion-select interface="popover" placeholder="Select District">
+                  <ion-select-option value="Pune">Pune</ion-select-option>
+                  <ion-select-option value="Satara">Satara</ion-select-option>
+                  <ion-select-option value="Kolhapur">Kolhapur</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="3">
+              <ion-label>Search By</ion-label>
+              <ion-radio-group [(ngModel)]="search" name="search">
+                <div class="radioBtn">
+                  <ul>
+                    <li>
+                      <ion-radio item-left name="search" value="mobile"></ion-radio>
+                      <ion-label>Mobile</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="custName"></ion-radio>
+                      <ion-label>Customer Name</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="Address"></ion-radio>
+                      <ion-label>Address</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="postAddress"></ion-radio>
+                      <ion-label>Postal Code & Address</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="nameAddress"></ion-radio>
+                      <ion-label>Name & Address</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="namePincode"></ion-radio>
+                      <ion-label>Name & Pincode</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="postCode"></ion-radio>
+                      <ion-label>Postal Code Search</ion-label>
+                    </li>
+                    <!-- <li>
+                      <ion-radio item-left name="search" value="UID"></ion-radio>
+                      <ion-label>UID / ADR</ion-label>
+                    </li> -->
+                    <li>
+                      <ion-radio item-left name="search" value="altNumber"></ion-radio>
+                      <ion-label>Alt. No.</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="Platform"></ion-radio>
+                      <ion-label>Source</ion-label>
+                    </li>
+                  </ul>
+                </div>
+
+              </ion-radio-group>
+            </ion-col>
+            <ion-col size="3">
+              <ion-button color="danger" fill="outline">Clear</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div *ngIf="search == 'mobile'" class="inputDiv">
+          <p>
+            Search By Mobile No.
+          </p>
+          <form (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="3">
+                  <ion-item>
+                    <ion-input
+                      placeholder="Mobile"
+                      name="Mobile"
+                      [(ngModel)]="mobileModal.MobileNo"
+                      (keypress)="keyPressNumbers($event)"
+                      minlength="10"
+                      maxlength="12"
+                      ></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col size="3">
+                  <ion-button (click)="searchMob()" [disabled]="!f.form.valid">
+                    <ion-icon name="search-outline" ></ion-icon> Search
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </form>
+        </div>
+
+        <div *ngIf="search == 'custName'" class="inputDiv">
+          <p>
+            Search By Customer Name
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-input 
+                    placeholder="Customer Name" 
+                    type="text" 
+                    name="Name"
+                    [(ngModel)]="nameModal.Name"
+                    (keypress)="letterOnly($event)"
+                    ></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-button (click)="searchName()">
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div *ngIf="search == 'Address'" class="inputDiv">
+          <p>
+            Search By Address
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col size="10">
+                <ion-item>
+                  <ion-input 
+                    placeholder="Address"
+                    name="Address"
+                    [(ngModel)]="adrsModal.Address"
+                    ></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="2">
+                <ion-button (click)="searchAdrs()">
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div *ngIf="search == 'postAddress'" class="inputDiv">
+          <p>
+            Search By Pin Code & Address
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col size="2">
+                <ion-item>
+                  <ion-input 
+                    placeholder="Pin Code" 
+                    name="Pincode"
+                    [(ngModel)]="adrsPinModal.Pincode"
+                    (keypress)="keyPressNumbers($event)" 
+                    maxlength="6"
+                    ></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="8">
+                <ion-item>
+                  <ion-input 
+                  name="Address"
+                  [(ngModel)]="adrsPinModal.Address"
+                    placeholder="Address"
+                    ></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="2">
+                <ion-button (click)="searchAdrsPin()">
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div *ngIf="search == 'nameAddress'" class="inputDiv">
+          <p>
+            Search By Name & Address
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col size="3">
+                <ion-item>
+                  <ion-input 
+                    placeholder="Name" 
+                    (keypress)="letterOnly($event)"
+                    name="Name"
+                    [(ngModel)]="nameAdrsModal.Name"
+                    ></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="7">
+                <ion-item>
+                  <ion-input 
+                    placeholder="Address" 
+                    name="address"
+                    [(ngModel)]="nameAdrsModal.Address"
+                    ></ion-input>
+                </ion-item>
+              </ion-col>
+
+              <ion-col size="2">
+                <ion-button (click)="searchNameAdrs()">
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div *ngIf="search == 'namePincode'" class="inputDiv">
+          <p>
+            Search By Name & Pincode
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col size="3">
+                <ion-item>
+                  <ion-input 
+                    placeholder="PinCode" 
+                    name="PinCode"
+                    [(ngModel)]="namePinModal.PinCode"
+                    ></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="4">
+                <ion-item>
+                  <ion-input 
+                    placeholder="Name" 
+                    (keypress)="letterOnly($event)"
+                    name="Name"
+                    [(ngModel)]="namePinModal.Name"
+                    ></ion-input>
+                </ion-item>
+              </ion-col>
+              
+
+              <ion-col size="2">
+                <ion-button (click)="namePinCount()">
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+
+              <ion-col size="2" *ngFor="let item of namePinCountData" class="count">
+                <ion-text *ngIf="!isShow">
+                  Count - <span> {{item.totalCount}} </span>
+                </ion-text>
+              </ion-col>
+
+              <ion-col size="1" *ngIf="!isShow">
+                <ion-button color="success" (click)="downloadNamePin()">
+                   Download
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div *ngIf="search == 'postCode'" class="inputDiv">
+          <p>
+            Search By Postal Code
+          </p>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3">
+                <ion-item>
+                  <ion-input 
+                    placeholder="Pin Code" 
+                    name="PinCode"
+                    [(ngModel)]="PinModal.PinCode"
+                    
+                    ></ion-input>
+                </ion-item>
+              </ion-col>
+              
+              <ion-col size="3">
+                <ion-button (click)="searchPinCode()">
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+              <ion-col size="5" *ngFor="let item of pinDataCount" class="flex">
+                <p>Count - {{item.totalCount}}</p>
+                <ion-button color="success" (click)="downloadPinData()">Download</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <!-- <div *ngIf="search == 'UID'" class="inputDiv">
+          <p>
+            Search By UID/ADR
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-input placeholder="UID/ADR" (keypress)="keyPressNumbers($event)" maxlength="12"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-button>
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div> -->
+
+        <div *ngIf="search == 'altNumber'" class="inputDiv">
+          <p>
+            Search By Alternate Number
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col size="3">
+                <ion-item>
+                  <ion-input 
+                    placeholder="Alt.No." 
+                    name="AltMobileNo"
+                    [(ngModel)]="altMobModal.AltMobileNo"
+                    (keypress)="keyPressNumbers($event)" 
+                    maxlength="12"
+                    minlength="10"
+                    ></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button (click)="searchAltMob()">
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+      </form>
+      <div class="title">
+        <p>List</p>
+        
+      </div>
+      <table class="table" #epltable>
+        <thead>
+          <tr>
+            <th>Mobile</th>
+            <th>Customer Name</th>
+            <th>DoB</th>
+            <th>Father's Name</th>
+            <th>laddress</th>
+            <th>paddress</th>
+            <th>Alt. no.</th>
+            <th>Email</th>
+            <th>VoterId</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of mobileNoData">
+            <!-- <td>9158490455 <ion-icon name="logo-whatsapp" class="whatsapp"></ion-icon></td> -->
+            <td>{{item.mobileNo}} </td>
+            <td>{{item.customer_Name}}</td>
+            <td>{{item.birthDate}}</td>
+            <td>{{item.father_Name}}</td>
+            <td>{{item.local_Address}}</td>
+            <td>{{item.permanent_Address}}</td>
+            <td>{{item.altMobile_Number}} </td>
+            <td>{{item.email}}</td>
+            <td>{{item.votingCardNo}}</td>
+            <td>{{item.source_of_Data}}</td>
+            
+          </tr>
+          <tr *ngFor="let item of altMobData">
+            <!-- <td>9158490455 <ion-icon name="logo-whatsapp" class="whatsapp"></ion-icon></td> -->
+            <td>{{item.mobileNo}} </td>
+            <td>{{item.customer_Name}}</td>
+            <td>{{item.birthDate}}</td>
+            <td>{{item.father_Name}}</td>
+            <td>{{item.local_Address}}</td>
+            <td>{{item.permanent_Address}}</td>
+            <td>{{item.altMobile_Number}} </td>
+            <td>{{item.email}}</td>
+            <td>{{item.votingCardNo}}</td>
+            <td>{{item.source_of_Data}}</td>
+            
+          </tr>
+          <tr *ngFor="let item of nameData">
+            <!-- <td>9158490455 <ion-icon name="logo-whatsapp" class="whatsapp"></ion-icon></td> -->
+            <td>{{item.mobileNo}} </td>
+            <td>{{item.customer_Name}}</td>
+            <td>{{item.birthDate}}</td>
+            <td>{{item.father_Name}}</td>
+            <td>{{item.local_Address}}</td>
+            <td>{{item.permanent_Address}}</td>
+            <td>{{item.altMobile_Number}} </td>
+            <td>{{item.email}}</td>
+            <td>{{item.votingCardNo}}</td>
+            <td>{{item.source_of_Data}}</td>
+            
+          </tr>
+          <tr *ngFor="let item of addressData">
+            <!-- <td>9158490455 <ion-icon name="logo-whatsapp" class="whatsapp"></ion-icon></td> -->
+            <td>{{item.mobileNo}} </td>
+            <td>{{item.customer_Name}}</td>
+            <td>{{item.birthDate}}</td>
+            <td>{{item.father_Name}}</td>
+            <td>{{item.local_Address}}</td>
+            <td>{{item.permanent_Address}}</td>
+            <td>{{item.altMobile_Number}} </td>
+            <td>{{item.email}}</td>
+            <td>{{item.votingCardNo}}</td>
+            <td>{{item.source_of_Data}}</td>
+            
+          </tr>
+          <tr *ngFor="let item of nameAdrsData">
+            <!-- <td>9158490455 <ion-icon name="logo-whatsapp" class="whatsapp"></ion-icon></td> -->
+            <td>{{item.mobileNo}} </td>
+            <td>{{item.customer_Name}}</td>
+            <td>{{item.birthDate}}</td>
+            <td>{{item.father_Name}}</td>
+            <td>{{item.local_Address}}</td>
+            <td>{{item.permanent_Address}}</td>
+            <td>{{item.altMobile_Number}} </td>
+            <td>{{item.email}}</td>
+            <td>{{item.votingCardNo}}</td>
+            <td>{{item.source_of_Data}}</td>
+          </tr>
+          <tr *ngFor="let item of adrsPinData">
+            <!-- <td>9158490455 <ion-icon name="logo-whatsapp" class="whatsapp"></ion-icon></td> -->
+            <td>{{item.mobileNo}} </td>
+            <td>{{item.customer_Name}}</td>
+            <td>{{item.birthDate}}</td>
+            <td>{{item.father_Name}}</td>
+            <td>{{item.local_Address}}</td>
+            <td>{{item.permanent_Address}}</td>
+            <td>{{item.altMobile_Number}} </td>
+            <td>{{item.email}}</td>
+            <td>{{item.votingCardNo}}</td>
+            <td>{{item.source_of_Data}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <ion-popover trigger="click-trigger" [dismissOnSelect]="true" triggerAction="click">
+    <ng-template>
+      <ion-content>
+        <ion-list class="topSection">
+          <ion-icon name="person-sharp"></ion-icon>
+          <ul>
+            <li class="name">Sagar Salunkhe</li>
+            <li>Superadmin</li>
+          </ul>
+        </ion-list>
+        <ion-list>
+          <ion-item [button]="true" [detail]="false" routerLink="/user/view-user">
+            <ion-icon name="person-sharp"></ion-icon>
+            My Profile
+          </ion-item>
+          <ion-item [button]="true" [detail]="false">
+            <ion-icon name="create-sharp"></ion-icon>
+            Edit
+          </ion-item>
+          <ion-item [button]="true" [detail]="false">
+            <ion-icon name="lock-open-sharp"></ion-icon>
+            Change Password
+          </ion-item>
+          <ion-item [button]="true" [detail]="false" lines="none" routerLink="/">
+            <ion-icon name="power-sharp"></ion-icon>
+            Log Out
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-popover>
+
+</ion-content>

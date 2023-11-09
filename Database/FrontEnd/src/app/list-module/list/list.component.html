@@ -1,0 +1,328 @@
+
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button auto-hide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>List</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="main-bg">
+    <div class="page-header"></div>
+    <div class="table-responsive">
+      <form>
+        <ion-grid class="topForm">
+          <ion-row>
+            <ion-col size="3">
+              <ion-label>Select State</ion-label>
+              <ion-item>
+                <ion-select interface="popover" placeholder="Select State">
+                  <ion-select-option value="Maharashtra">Maharashtra</ion-select-option>
+                  <ion-select-option value="Gujrat">Gujrat</ion-select-option>
+                  <ion-select-option value="Karnataka">Karnataka</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="3">
+              <ion-label>Select District</ion-label>
+              <ion-item>
+                <ion-select interface="popover" placeholder="Select District">
+                  <ion-select-option value="Pune">Pune</ion-select-option>
+                  <ion-select-option value="Satara">Satara</ion-select-option>
+                  <ion-select-option value="Kolhapur">Kolhapur</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="3">
+              <ion-label>Search By</ion-label>
+              <ion-radio-group [(ngModel)]="search" name="search">
+                <div class="radioBtn">
+                  <ul>
+                    <li>
+                      <ion-radio item-left name="search" value="mobile"></ion-radio>
+                      <ion-label>Mobile</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="custName"></ion-radio>
+                      <ion-label>Customer Name</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="Address"></ion-radio>
+                      <ion-label>Address</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="postAddress"></ion-radio>
+                      <ion-label>Postal Code & Address</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="nameAddress"></ion-radio>
+                      <ion-label>Name & Address</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="postCode"></ion-radio>
+                      <ion-label>Postal Code Search</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="UID"></ion-radio>
+                      <ion-label>UID / ADR</ion-label>
+                    </li>
+                    <li>
+                      <ion-radio item-left name="search" value="altNumber"></ion-radio>
+                      <ion-label>Alt. No.</ion-label>
+                    </li>
+                    
+                  </ul>
+                </div>
+  
+              </ion-radio-group>
+            </ion-col>
+            <ion-col size="3">
+              <ion-button color="danger">Clear</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div *ngIf="search == 'mobile'" class="inputDiv">
+          <p>
+            Search By Mobile No.
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-input placeholder="Mobile"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-button>
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div *ngIf="search == 'custName'" class="inputDiv">
+          <p>
+            Search By Customer Name
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-input placeholder="Customer Name"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-button>
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div *ngIf="search == 'Address'" class="inputDiv">
+          <p>
+            Search By Address
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-input placeholder="Area/Street/Building Name"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-button>
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div *ngIf="search == 'postAddress'" class="inputDiv">
+          <p>
+            Search By Pin Code & Address
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col size="3">
+                <ion-item>
+                  <ion-input placeholder="Pin Code"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item>
+                  <ion-input placeholder="Address"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button>
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div *ngIf="search == 'nameAddress'" class="inputDiv">
+          <p>
+            Search By Name & Address
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col size="6">
+                <ion-item>
+                  <ion-input placeholder="Name"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="3">
+                <ion-item>
+                  <ion-input placeholder="Pin Code"></ion-input>
+                </ion-item>
+              </ion-col>
+              
+              <ion-col size="3">
+                <ion-button>
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div *ngIf="search == 'postCode'" class="inputDiv">
+          <p>
+            Search By Postal Code
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col size="3">
+                <ion-item>
+                  <ion-input placeholder="Pin Code"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-item>
+                  <ion-select interface="popover" placeholder="Select Range">
+                    <ion-select-option value="10000">10,000</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+              
+              
+              <ion-col size="3">
+                <ion-button>
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div *ngIf="search == 'UID'" class="inputDiv">
+          <p>
+            Search By UID/ADR
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-input placeholder="UID/ADR"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-button>
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div *ngIf="search == 'altNumber'" class="inputDiv">
+          <p>
+            Search By Alternate Number
+          </p>
+          <ion-grid >
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-input placeholder="Alt.No."></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-button>
+                  <ion-icon name="search-outline"></ion-icon> Search
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+      </form>
+      <div class="title">
+        <p>List</p>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Mobile</th>
+            <th>Customer Name</th>
+            <th>DoB</th>
+            <th>Father's Name</th>
+            <th>laddress</th>
+            <th>paddress</th>
+            <th>Alt. no.</th>
+            <th>Email</th>
+            <th>UID</th>
+            <th>ADR</th>
+            <th>DOA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>9158490455</td>
+            <td>Sagar Manaji Salunkhe</td>
+            <td>11/06/1994</td>
+            <td>Manaji Eknath Salunkhe</td>
+            <td>Pune</td>
+            <td>Pune</td>
+            <td>9579743709</td>
+            <td>sagarsalunkhe200@gmail.com</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>9158490455</td>
+            <td>Sagar Manaji Salunkhe</td>
+            <td>11/06/1994</td>
+            <td>Manaji Eknath Salunkhe</td>
+            <td>Pune</td>
+            <td>Pune</td>
+            <td>9579743709</td>
+            <td>sagarsalunkhe200@gmail.com</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>9158490455</td>
+            <td>Sagar Manaji Salunkhe</td>
+            <td>11/06/1994</td>
+            <td>Manaji Eknath Salunkhe</td>
+            <td>Pune</td>
+            <td>Pune</td>
+            <td>9579743709</td>
+            <td>sagarsalunkhe200@gmail.com</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ion-content>
