@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>E:\Abhay\DeploymentMobile</_PublishTargetUrl>
+    <History>True|2023-10-05T06:27:11.7330736Z;True|2023-10-05T11:03:36.8953513+05:30;True|2023-10-05T10:34:15.9915751+05:30;False|2023-10-05T10:34:09.6724517+05:30;True|2023-10-04T16:30:14.9838033+05:30;True|2023-09-23T16:55:37.7635851+05:30;False|2023-09-23T16:54:53.2131665+05:30;False|2023-09-23T16:54:36.9349350+05:30;False|2023-09-23T16:54:30.0510158+05:30;False|2023-09-23T16:54:23.4891689+05:30;False|2023-09-23T16:54:17.3543130+05:30;False|2023-09-23T16:54:03.7610234+05:30;True|2023-09-23T16:43:26.9209864+05:30;True|2023-09-23T14:13:54.7953254+05:30;True|2023-09-23T14:13:39.5087621+05:30;True|2023-09-23T14:12:56.6493345+05:30;False|2023-09-23T14:11:57.1852928+05:30;</History>
+  </PropertyGroup>
+</Project>
